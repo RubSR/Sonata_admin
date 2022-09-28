@@ -20,22 +20,22 @@ class Direccion
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $camion;
+    private $calle;
 
     /**
      * @return mixed
      */
-    public function getCamion()
+    public function getCalle()
     {
-        return $this->camion;
+        return $this->calle;
     }
 
     /**
-     * @param mixed $camion
+     * @param mixed $calle
      */
-    public function setCamion($camion): void
+    public function setCalle($calle): void
     {
-        $this->camion = $camion;
+        $this->calle = $calle;
     }
 
     /**
@@ -58,18 +58,6 @@ class Direccion
      * @ORM\JoinColumn(nullable=false)
      */
     private $cliente;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Municipios::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $municipio;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Provincias::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $provincia;
 
 
 
@@ -124,30 +112,6 @@ class Direccion
     public function setCliente(?Cliente $cliente): self
     {
         $this->cliente = $cliente;
-
-        return $this;
-    }
-
-    public function getMunicipio(): ?Municipios
-    {
-        return $this->municipio;
-    }
-
-    public function setMunicipio(Municipios $municipio): self
-    {
-        $this->municipio = $municipio;
-
-        return $this;
-    }
-
-    public function getProvincia(): ?Provincias
-    {
-        return $this->provincia;
-    }
-
-    public function setProvincia(Provincias $provincia): self
-    {
-        $this->provincia = $provincia;
 
         return $this;
     }
