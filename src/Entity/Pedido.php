@@ -140,7 +140,7 @@ class Pedido
     {
         return $this->platos;
     }
-
+    // HOla
     public function setPlatos(?Plato $platos): self
     {
         $this->platos = $platos;
