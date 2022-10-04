@@ -15,12 +15,12 @@ class Categoria
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private  int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $categoria;
+    private string $categoria;
 
     public function getId(): ?int
     {
