@@ -21,7 +21,7 @@ class CatergoriaController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Get (path="/list")
+     * @Rest\Get (path="/")
      * @Rest\View (serializerGroups={"get_categorias"}, serializerEnableMaxDepthChecks = true)
      */
 
