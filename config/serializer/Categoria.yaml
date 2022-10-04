@@ -1,0 +1,7 @@
+App\Entity\Categoria:
+  attributes:
+    id:
+      groups: ['categoria_list']
+
+    categoria:
+      groups: ['categoria_list']
