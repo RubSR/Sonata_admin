@@ -59,6 +59,18 @@ class Direccion
      */
     private $cliente;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Municipios::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $municipio;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Provincias::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $provincia;
+
 
 
     public function getId(): ?int
@@ -112,6 +124,30 @@ class Direccion
     public function setCliente(?Cliente $cliente): self
     {
         $this->cliente = $cliente;
+
+        return $this;
+    }
+
+    public function getMunicipio(): ?Municipios
+    {
+        return $this->municipio;
+    }
+
+    public function setMunicipio(Municipios $municipio): self
+    {
+        $this->municipio = $municipio;
+
+        return $this;
+    }
+
+    public function getProvincia(): ?Provincias
+    {
+        return $this->provincia;
+    }
+
+    public function setProvincia(Provincias $provincia): self
+    {
+        $this->provincia = $provincia;
 
         return $this;
     }
