@@ -22,7 +22,7 @@ class DireccionType extends AbstractType
             ->add('numero', TextType::class)
             ->add('puertaPisoEscalera', TextType::class)
             ->add('codPostal', NumberType::class)
-            ->add('cliente', EntityType::class,
+            ->add('cliente', EntityType::class,// Entiende que es una relacion
             ['class'=> Cliente::class])
             ->add('municipio', EntityType::class,[
                 'class'=> Municipios::class
@@ -39,5 +39,14 @@ class DireccionType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Direccion::class,
         ]);
+    }
+
+
+    public function getBlockPrefix()
+    {
+        return '';
+    }
+    public function getName(){
+        return '';
     }
 }
