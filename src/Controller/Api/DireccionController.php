@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @Rest\Route("/direccion")
@@ -58,6 +59,41 @@ class DireccionController extends AbstractFOSRestController
         //3.Si existe entonces busco en la tabla direccion por el campo cliente
         $direcciones = $this->repo->findBy(['cliente'=> $idCliente]);
         return $direcciones;
+    }
+
+    //Update
+    /**
+     * @Rest\Patch (path="/{id}")
+     * @Rest\View (serializerGroups={"get_dir_cliente"},serializerEnableMaxDepthChecks= true)
+     */
+
+    public function updateDireccion(Request $request){
+        $idDireccion = $request->get('id');
+        $direccion = $this->repo->find($idDireccion);
+        if(!$direccion){
+            return new JsonResponse('No existe', Response::HTTP_NOT_FOUND);
+        }
+        $form = $this->createForm(DireccionType::class,$direccion, ['method'=>$request->getMethod()]);
+        $form->handleRequest($request);
+        if(!$form->isSubmitted() || !$form->isValid()){
+            return $form;
+        }
+        $this->repo->add($direccion, true);
+        return $direccion;
+    }
+
+    /**
+     * @Rest\Delete (path="/{id}")
+     *
+     */
+    public function deleteDireccion(Request $request){
+        $idDireccion = $request->get('id');
+        $direccion = $this->repo->find($idDireccion);
+        if(!$direccion){
+            throw new NotFoundHttpException('No existe la direccion ');
+        }
+        $this->repo->remove($direccion, true);
+        return new Response('Eliminado',Response::HTTP_OK);
     }
 
 }
