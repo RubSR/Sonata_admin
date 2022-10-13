@@ -15,10 +15,10 @@ App\Entity\Restaurante:
     platos:
       groups: ['restaurante']
     horarios:
-      groups: ['restaurante']
+      groups: []
     categorias:
-      groups: ['restaurante', 'res_filtered']
+      groups: [ 'res_filtered']
     municipio:
-      groups: ['restaurante']
+      groups: []
 
 
