@@ -147,4 +147,9 @@ class Plato
     }
 
 
+    public function __toString()
+    {
+
+        return strval($this->id). '-'. $this->nombre;
+    }
 }

@@ -33,3 +33,28 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    admin.categoria:
+        class: App\Admin\CategoriaAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Categoria, controller: ~, manager_type: orm, group: admin, label: Categoria }
+
+    admin.cliente:
+        class: App\Admin\ClienteAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Cliente, controller: ~, manager_type: orm, group: admin, label: Cliente }
+
+    admin.direccion:
+        class: App\Admin\DireccionAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Direccion, controller: ~, manager_type: orm, group: admin, label: Direccion }
+
+    admin.restaurante:
+        class: App\Admin\RestauranteAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Restaurante, controller: ~, manager_type: orm, group: admin, label: Restaurante }
+
+    admin.plato:
+        class: App\Admin\PlatoAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Plato, controller: ~, manager_type: orm, group: admin, label: Plato }
