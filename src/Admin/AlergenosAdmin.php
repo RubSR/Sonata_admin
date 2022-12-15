@@ -10,18 +10,15 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-final class RestauranteAdmin extends AbstractAdmin
+final class AlergenosAdmin extends AbstractAdmin
 {
 
     protected function configureDatagridFilters(DatagridMapper $filter): void
     {
         $filter
+
             ->add('id')
-            ->add('nombre')
-            ->add('logo_url')
-            ->add('imagenUrl')
-            ->add('descripcion')
-            ->add('destacado')
+            ->add('alergeno')
             ;
     }
 
@@ -29,10 +26,7 @@ final class RestauranteAdmin extends AbstractAdmin
     {
         $list
             ->add('id')
-            ->add('nombre')
-            ->add('destacado')
-            ->add('municipio')
-
+            ->add('alergeno')
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
                     'show' => [],
@@ -45,14 +39,10 @@ final class RestauranteAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form): void
     {
         $form
+            //Como tengo el id autogenerado
 
-            ->add('nombre')
-            ->add('logo_url')
-            ->add('imagenUrl')
-            ->add('descripcion')
-            ->add('destacado')
-            ->add('municipio')
-            ->add('categorias')
+            //->add('id')
+            ->add('alergeno')
             ;
     }
 
@@ -60,15 +50,7 @@ final class RestauranteAdmin extends AbstractAdmin
     {
         $show
             ->add('id')
-            ->add('nombre')
-            ->add('logo_url')
-            ->add('imagenUrl')
-            ->add('descripcion')
-            ->add('destacado')
-            ->add('municipio')
-            ->add('categorias')
-            ->add('platos')
-            ->add('horarios')
+            ->add('alergeno')
             ;
     }
 }

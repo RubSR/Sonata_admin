@@ -58,3 +58,18 @@ services:
         class: App\Admin\PlatoAdmin
         tags:
             - { name: sonata.admin, model_class: App\Entity\Plato, controller: ~, manager_type: orm, group: admin, label: Plato }
+
+    admin.alergenos:
+        class: App\Admin\AlergenosAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Alergenos, controller: ~, manager_type: orm, group: admin, label: Alergenos }
+
+    admin.horario:
+        class: App\Admin\HorarioAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Horario, controller: ~, manager_type: orm, group: admin, label: Horario }
+
+    admin.pedido:
+        class: App\Admin\PedidoAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Pedido, controller: ~, manager_type: orm, group: admin, label: Pedido }

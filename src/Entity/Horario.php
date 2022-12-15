@@ -90,4 +90,9 @@ class Horario
 
         return $this;
     }
+    public function __toString()
+    {
+        //strval() parsear a string
+        return strval($this->id);
+    }
 }
